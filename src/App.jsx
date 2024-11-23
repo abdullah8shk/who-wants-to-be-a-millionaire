@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import Questions from './components/Questions';
 import './App.css';
-import Timer from './components/Timer';
+// import Timer from './components/Timer';
 import Start from './components/Start';
 import { data } from './data';
 
@@ -10,76 +10,6 @@ function App() {
   const [questionNumber, setQuestionNumber] = useState(1);
   const [stop, setStop] = useState(false);
   const [earned, setEarned] = useState('$ 0');
-
-  // const data = [
-  //   {
-      
-  //     id: 1,
-  //     question: 'Chromosomal abnormalities can lead to',
-  //     answers: [
-  //       {
-  //         text: 'Recurrent spontaneous abortions',
-  //         correct: true,
-  //       },
-  //       {
-  //         text: 'An offspring with intellectual disability',
-  //         correct: false,
-  //       },
-  //       {
-  //         text: 'Isolated short stature in a girl',
-  //         correct: false,
-  //       },
-  //       {
-  //         text: 'All of the above',
-  //         correct: false,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     id: 2,
-  //     question: 'When did the website `Facebook` launch?',
-  //     answers: [
-  //       {
-  //         text: '2004',
-  //         correct: true,
-  //       },
-  //       {
-  //         text: '2005',
-  //         correct: false,
-  //       },
-  //       {
-  //         text: '2006',
-  //         correct: false,
-  //       },
-  //       {
-  //         text: '2007',
-  //         correct: false,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     id: 3,
-  //     question: 'Who played the character of Harry Potter in the movie?',
-  //     answers: [
-  //       {
-  //         text: 'Johnny Depp',
-  //         correct: false,
-  //       },
-  //       {
-  //         text: 'Leonardo DiCaprio',
-  //         correct: false,
-  //       },
-  //       {
-  //         text: 'Denzel Washington',
-  //         correct: false,
-  //       },
-  //       {
-  //         text: 'Daniel Radcliffe',
-  //         correct: true,
-  //       },
-  //     ],
-  //   },
-  // ];
 
   const moneyPyramid = useMemo(
     () =>
