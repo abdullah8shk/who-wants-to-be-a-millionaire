@@ -4,6 +4,7 @@ import './questions.css';
 import play from '../assets/src_sounds_play.mp3';
 import correct from '../assets/src_sounds_correct.mp3';
 import wrong from '../assets/src_sounds_wrong.mp3';
+import winner from '../assets/src_sounds_winner.mp3';
 
 export default function Questions({
   data,
@@ -17,6 +18,7 @@ export default function Questions({
   const [letsPlay] = useSound(play);
   const [correctAnswer] = useSound(correct);
   const [wrongAnswer] = useSound(wrong);
+  const [winnerMusic] = useSound(winner);
 
   useEffect(() => {
     letsPlay();
@@ -24,7 +26,11 @@ export default function Questions({
 
   useEffect(() => {
     setQuestion(data[questionNumber - 1]);
-  }, [data, questionNumber]);
+    if (data[questionNumber - 1] === undefined) {
+      setStop(true);
+      winnerMusic();
+    }
+  }, [data, questionNumber, setStop, winnerMusic]);
 
   const delay = (duration, callback) => {
     setTimeout(() => {
@@ -58,8 +64,9 @@ export default function Questions({
     <div className='Questions'>
       <div className='question'>{question?.question}</div>
       <div className='answers'>
-        {question?.answers.map(answer => (
+        {question?.answers.map((answer, i) => (
           <div
+            key={i}
             className={selectedAnswer === answer ? className : 'answer'}
             onClick={() => handleClick(answer)}
           >

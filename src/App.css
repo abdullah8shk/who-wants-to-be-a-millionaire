@@ -12,6 +12,18 @@
   display: flex;
   flex-direction: column;
 }
+.logo-container {
+  background: white;
+  width: max-content;
+  position: fixed;
+  left: 25%;
+  top: 16%;
+  padding: 5px;
+  border-radius: 4px;
+}
+.logo {
+  max-height: 3em;
+}
 
 .top {
   height: 50%;
